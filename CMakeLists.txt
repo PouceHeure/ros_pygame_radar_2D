@@ -10,6 +10,7 @@ project(ros_pygame_radar_2D)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -45,6 +46,12 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
+add_message_files(
+   FILES
+   PointPolar.msg
+   RadarPointCloud.msg
+)
+
 ## Generate messages in the 'msg' folder
 # add_message_files(
 #   FILES
@@ -72,9 +79,16 @@ find_package(catkin REQUIRED COMPONENTS
 #   std_msgs
 # )
 
+catkin_python_setup() 
+
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
 ################################################
+
+generate_messages(
+   DEPENDENCIES
+   std_msgs  # Or other packages containing msgs
+)
 
 ## To declare and build dynamic reconfigure parameters within this
 ## package, follow these steps:
@@ -103,8 +117,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES ros_pygame_radar_2D
-#  CATKIN_DEPENDS rospy std_msgs
+#  LIBRARIES demo_pubsub_own_msg
+   CATKIN_DEPENDS message_runtime rospy
 #  DEPENDS system_lib
 )
 
@@ -153,7 +167,7 @@ include_directories(
 ## Install ##
 #############
 
-catkin_python_setup() 
+
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
