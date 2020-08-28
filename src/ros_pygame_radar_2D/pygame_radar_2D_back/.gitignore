@@ -1,9 +1,0 @@
-# vscode 
-.vscode 
-
-# py 
-__pycache__/
-
-# remove personal ln
-./examples/pygame_radar_2D 
-
