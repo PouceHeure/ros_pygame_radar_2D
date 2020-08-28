@@ -25,6 +25,6 @@ class RadarRos:
     
 if __name__ == '__main__': 
     rospy.init_node('radar_node', anonymous=True)
-    radar_ros = RadarRos("radar",500,r_lim=4)
+    radar_ros = RadarRos("radar",1000,r_lim=2)
     radar_ros.start()
     rospy.spin()
