@@ -1,3 +1,3 @@
 [submodule "script/pygame_radar_2D"]
-	path = script/pygame_radar_2D
+	path = src/ros_pygame_radar_2D/pygame_radar_2D
 	url = git@github.com:PouceHeure/pygame_radar_2D.git
