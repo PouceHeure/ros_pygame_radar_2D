@@ -15,6 +15,9 @@ class RadarRos:
         
     def start(self):
         self.radar.start()
+
+    def stop(self):
+        self.radar.quit()
     
     def callback(self,data):
         points = []
@@ -28,3 +31,4 @@ if __name__ == '__main__':
     radar_ros = RadarRos("radar",1000,r_lim=1,point_size=10)
     radar_ros.start()
     rospy.spin()
+    radar_ros.stop()
